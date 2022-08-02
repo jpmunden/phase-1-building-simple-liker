@@ -4,6 +4,26 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log('Dom fully loaded and parsed');
+  document.querySelector('#modal').classList.add('hidden')
+  clickListener()
+});
+
+function clickListener(){
+  document.addEventListener('click', (event) => {
+    if(event.target.classList[0] === 'like-glyph') {
+      mimicServerCall()
+      .then((resp) => {
+        console.log(resp)
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
+    }
+  })
+}
+
 
 
 
